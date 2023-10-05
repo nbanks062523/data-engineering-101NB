@@ -17,7 +17,7 @@ Take some time to click around on your new GitHub profile to explore the tabs.
 ## Key Terms
 
 ### Remote Repositories and Local Repositories
-You can think of a local repo as the version of a project you have on your own computer, where you can make changes to share later, and a remote repository as the one on GitHub, seen by everyone. 
+You can think of a local repo (repository) as the version of a project you have on your own computer, where you can make changes to share later, and a remote repository as the one on GitHub, seen by everyone. 
 
 ### Initializing a Repository
 This makes a versioned project into a Git repository by creating a .git subdirectory. Run this command one time when you're setting up your project:
@@ -28,7 +28,7 @@ If you try to run a git command, like `git status`, and get the error message `f
 
 ### Forking and Cloning
 Later in this course, you'll see how to fork the remote Data Engineering Bootcamp repo, so you had your own remote copy of it. This allows you to make changes on your copy of a repository, without effecting the shared remote copy.
-You can also create a local repo from a remote by cloning it. A forked repository is a completely independent copy, while a cloned one is sychronized with the remote.
+You can also create a local repo (repository) from a remote repository by cloning it. A forked repository is a completely independent copy, while a cloned one is sychronized with the remote.
 
 ### Pushing and Pulling
 Push changes from local -> remote. Pull changes remote -> local.
@@ -44,9 +44,9 @@ git commit -m "do a thing"
 ```
 
 ### Branches, Pull Requests, and Merging
-On both the remote and local, the `main` branch is the official version of the project. Creating a branch makes a copy of the project where you can play around and make changes without affecting the `main` branch. 
+On both the remote repository and local repository, the `main` branch is the official version of the project. Creating another branch makes a copy of the project where you can play around and make changes without affecting the `main` branch. 
 
-If you like the changes you made on your local branch, you can push them to a corresponding remote branch and create a pull request. A pull request is a way of asking your collaborators to merge your changes with the remote `main` branch, making them part of the shared, official version of the project.
+If you like the changes you made on your local version of the main branch, you can push them to a corresponding remote branch and create a pull request. A **pull request** is a way of asking your collaborators to merge your changes with the remote `main` branch, making them part of the shared, official version of the project.
 
 ## Git Flow Basics
 
@@ -56,24 +56,24 @@ Git and GitHub can become quite complex, especially when you're collaborating wi
 This is the simplest way to use Git. The flow is:
 - Make changes to your files in VS Code.
 - Save the changes in VS Code.
-- In your terminal, use the command `git add <file_name>` to add each changed file to Git's staging area. If the file isn't in your terminal's present working directory, you'll also have to include the relative path. Don't add files with `git add *`, which can accidentally include files that ought to be excluded.
+- In your terminal(Q-does this mean leave VS Code ?), use the command `git add <file_name>` to add each changed file to Git's staging area. If the file isn't in your terminal's present working directory, you'll also have to include the relative path. Don't add files with `git add *`, which can accidentally include files that ought to be excluded.
 > The command `git status` will show you what files have been changed since the last commit.
 - `git commit -m "<commit_message>"` will commit the changes to the project's history. What was changed, when it was committed, and the commit message all become part of the project's record. You can look at the commit history using Git or GitHub.
 
 Committing often makes it easier to find and fix errors.
 
-- `git push <remote_name> <remote_brach>` sends the committed changes from your local (VS Code) to the remote (GitHub). Nobody else can see the changes until you push them. 
-Usually, the remote name will be `origin`. If there aren't any branches, the main branch defaults to `main`, so the command is `git push origin main`. But this breaks one of the golden rules of Git: don't push to `main`! In a collaborative or production setting, the `main` branch the official version of the project that has been reviewed and agreed on. Pushing to a branch instead allows you and your peers to review changes before they become the official version of the project.
+- `git push <remote_name> <remote_branch>` sends the committed changes from your local (VS Code) to the remote (GitHub). Nobody else can see the changes until you push them. 
+Usually, the remote_name will be `origin`. If there aren't any other branches, the remote_branch defaults to `main`, so the command is `git push origin main`. But this breaks one of the golden rules of Git: don't push to `main`! In a collaborative or production setting, the `main` branch is the official version of the project that has been reviewed and agreed on. Pushing to another remote branch instead allows you and your peers to review changes before they become the official version of the project.
 
 #### With Branches
-Even when you're working alone, get in the habit of using branches. The flow is:
-- If you're on the main branch, the command `git checkout -b <branch_name>` will create a new branch off main and switch to it. "Create a new branch off main" means that you start with a version of the project that's exactly like the one you branched off. 
+Even when you're working alone, get into the habit of using branches. The flow is:
+- If you're on the main branch, the command `git checkout -b <branch_name>` will create a new branch off of the main branch and switch to it. "Create a new branch off of main" means that you start with a version of the project that's exactly like the one you branched off. 
 
 Give your branch a name that describes the way that branch is different from `main`, like "random_numbers" or "refactored". You can switch between existing branches with `git checkout <branch_name>`.
 
 - Make, add, and commit changes on your branch.
-- Push the changes from a local branch to a remote branch. Using `git push <remote_name> <branch_name>` will create a branch on GitHub with the same name as the local branch you're on, if one doesn't already exist.
-- When you want to add the changes on your branch to the main version of the project, open a pull request. We'll look at this in more detail below. When you're working with others, a pull request lets your peers look at the changes and make suggestions before merging them into `main`.
+- Pushing the changes from a local branch to a remote branch by using `git push <remote_name>("origin" which is usually the URL of the github repository) <branch_name>(my remote branch)` will create a branch on GitHub with the same name as the local branch you're on, if one doesn't already exist.
+- When you want to add the changes from your remote branch to the remote main version of the project, open a pull request. We'll look at this in more detail below. When you're working with others, a pull request lets your peers look at the changes and make suggestions before merging them into `main`.
 
 
 ## Project Setup
@@ -82,7 +82,7 @@ Every week, you'll use GitHub to share a repository for your code review project
 `pip install -r requirements.txt`
 in the terminal with the virtual environment activated, then start running the code in the repo.
 - A `README.md` file: you're in one now! It's the main documentation for a project, and it's what shows up on the main page of a GitHub repo. In the Data Stack Academy repository, we use the README to orient you to the content of the each episode. For your code review projects, you'll usually want to include a description of the project, a list of the technologies used, a list of the known bugs, and a diagram of how the pieces in your project fit together.
-- A `.gitignore` file: there will often be files or directories in your local repository that you don't want to include in the remote, like data, secret keys, configuration files, or virtual environments. Files and directories that should be ignored by Git can be added to a file called `.gitignore` in the main directory of your local repo. Each line in the `.gitignore` is a pattern for the types of files or directories that should be excluded from Git. For instance, `*.csv` will exclude all CSV files, and `venv/` will exclude the virtual environment. For more info on `.gitignore` and how to use patterns to indicate types of files, [read the docs](https://git-scm.com/docs/gitignore). Also, check out the [`.gitignore` file for the data-engineering-bootcamp repository](https://github.com/datastackacademy/data-engineering-bootcamp/blob/main/.gitignore) for a thorough example. For most of the projects in this bootcamp, your `.gitignore` will only need to include your virtual environment and data files. If you like, you can find a thorough boilerplate `.gitignore` and use the same one every time.
+- A `.gitignore` file: there will often be files/directories in your local repository that you don't want to include in the remote, like data, secret keys, configuration files, or virtual environments. Files and directories that should be ignored by Git can be added to a file called `.gitignore` in the main directory of your local repo. Each line in the `.gitignore` is a pattern for the types of files or directories that should be excluded from Git. For instance, `*.csv` will exclude all CSV files, and `venv/` will exclude the virtual environment. For more info on `.gitignore` and how to use patterns to indicate types of files, [read the docs](https://git-scm.com/docs/gitignore). Also, check out the [`.gitignore` file for the data-engineering-bootcamp repository](https://github.com/datastackacademy/data-engineering-bootcamp/blob/main/.gitignore) for a thorough example. For most of the projects in this bootcamp, your `.gitignore` will only need to include your virtual environment and data files. If you like, you can find a thorough boilerplate `.gitignore` and use the same one every time.
 
 `.gitignore`, `README.md`, and  `requirements.txt` are naming conventions, so don't change 'em. Remember the `.` in `.gitignore`.
 
@@ -103,7 +103,7 @@ We recommend the flow of:
 Step 4 and pushing changes will be repeated for as long as you're working on the project. We'll look at all the steps in more detail below.
 
 ### Step 1: Make the Repo and Files
-- Start a new repo in VS Code. You can call it whatever you want, and delete it later. Include:
+- Start a new repo in VS Code (instructions below). You can call it whatever you want, and delete it later. Include:
 - A `REAME.md` with whatever you'd like
 - A `requirements.txt` file with `jupyterlab` version 3.3.2 (just like the one in this episode)
 - A `.gitignore` file that will ignore your Python virtual environment
@@ -119,7 +119,7 @@ cd <dir_name>
 
 - Create the files you want:
 ``` 
-touch <file_name> <file_name>
+touch <file_name> <file_name> (each space represents a new filename to be added, ie: touch <file1> <file2> ...)
 ```
 
 - Open VS Code:
@@ -157,7 +157,7 @@ git init
 
 ### Step 4: Make and Commit Changes in the Files
 
-- Put whatever you want in the files, and save the changes.
+- Put whatever you want in the filesthat were created in the previous step, and save the changes.
 - Add the files to the Git staging area:
 ``` 
 git add <file_name> <file_name>
