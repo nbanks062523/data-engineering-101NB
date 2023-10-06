@@ -132,7 +132,7 @@ In the lesson on setting up VS Code, we installed and tested Python's virtualenv
 
 - In the directory of your main project, create a virtual environment:
 ```
-python3.7 -m venv venv
+python3.10 -m venv venv
 ```
 You only have to do this once per project. It creates a directory called `venv`. We tell `.gitignore` to exclude this from Git and GitHub, because other developers will make their own.
 
