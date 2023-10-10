@@ -94,23 +94,23 @@ You can see examples of these files in the [example_files](./example_files) fold
 This short exercise will just practice setting up a weekly code review repository. 
 
 We recommend the flow of:
-1. Making the repo and files locally
+1. Making the repo and files locally in VS code
 2. Activating the virtual environment and installing requirements
-3. Initializing a Git Repository
-4. Writing, saving, and commiting changes to the local files
-5. Creating a remote repository on GitHub and pushing the local repository to it
+3. Creating and Initializing a Git Repository in Git Hub
+4. Writing, saving, and commiting changes to the local files from VS code
+5. Pushing the local repository to the remote repository 
 
 Step 4 and pushing changes will be repeated for as long as you're working on the project. We'll look at all the steps in more detail below.
 
 ### Step 1: Make the Repo and Files
-- Start a new repo in VS Code (instructions below). You can call it whatever you want, and delete it later. Include:
-- A `REAME.md` with whatever you'd like
+Start a new repo folder in VS Code (instructions below). You can call it whatever you want, and delete it later. Include:
+- A `README.md` with whatever you'd like
 - A `requirements.txt` file with `jupyterlab` version 3.3.2 (just like the one in this episode)
 - A `.gitignore` file that will ignore your Python virtual environment
 - A `practice.ipynb` notebook file, with at least one markdown cell and one code cell. Put whatever you'd like in each of the cells
 - A `main.py` file, containing some Python code. In many Python repositories, the code is all contained in `.py` files, rather than notebooks. It's convention to name the file that ties all the other pieces of the project together `main.py`
 
-We recommend practicing terminal commands. Here are the the commands for making folders and files, and opening VS Code.
+We recommend practicing terminal commands. Here are the the commands for making folders and files, and opening VS Code (the directories can also be created in VS code terminal).
 - In the folder where you'll keep repositories, make a new directory and switch to it:
 ```
 mkdir <dir_name>
@@ -150,14 +150,20 @@ You only have to install the requirements once. They'll be there each time you r
 
 ### Step 3: Initialize a Git Repository
 
-- Initialize a new Git repository, so you can version control the project:
-```
-git init
-```
+Initialize a new Git repository, so you can version control the project:
+- On your GitHub profile, in the "Repositories" tab, click the green "New" button. Give your new repository a name, then click the green "Create repository" button at the bottom.
 
+You'll be redirected. Follow the commands under the heading "…or create a new repository on the command line".
+
+> In order to push to GitHub, you'll need a personal access token, which acts as your password. You probably made one of these during account setup. If not, follow [these instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+
+> If you don't want to enter your username and personal access token every time you push to remote, use the command
+```
+git config --global credential.helper store
+```
 ### Step 4: Make and Commit Changes in the Files
 
-- Put whatever you want in the filesthat were created in the previous step, and save the changes.
+- Put whatever you want in the files that were created in the previous step, and save the changes.
 - Add the files to the Git staging area:
 ``` 
 git add <file_name> <file_name>
@@ -168,17 +174,9 @@ git add <file_name> <file_name>
 git commit -m "<commit_message>"
 ```
 
-### Step 5: Create a Remote Repository and Push the Local to It
-On your GitHub profile, in the "Repositories" tab, click the green "New" button. Give your new repository a name, then click the green "Create repository" button at the bottom.
-
-You'll be redirected. Follow the commands under the heading "…or push an existing repository from the command line".
-
-> In order to push to GitHub, you'll need a personal access token, which acts as your password. You probably made one of these during account setup. If not, follow [these instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
-
-> If you don't want to enter your username and personal access token every time you push to remote, use the command
-```
-git config --global credential.helper store
-```
+### Step 5: Push the Local files to your repository 
+- To Push the changes from a local branch to a remote branch use `git push <remote_name>("origin" which is usually the URL of the github repository) <branch_name>(my remote branch)` will create a branch on GitHub with the same name as the local branch you're on, if one doesn't already exist.
+- When you want to add the changes from your remote branch to the remote main version of the project, open a pull request. We'll look at this in more detail below. When you're working with others, a pull request lets your peers look at the changes and make suggestions before merging them into `main`.
 
 If you refresh the GitHub page, you'll see your new repository that reflects the files, code, and commit messages you made on your local repository.
 
