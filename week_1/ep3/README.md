@@ -72,7 +72,7 @@ Even when you're working alone, get into the habit of using branches. The flow i
 Give your branch a name that describes the way that branch is different from `main`, like "random_numbers" or "refactored". You can switch between existing branches with `git checkout <branch_name>`.
 
 - Make, add, and commit changes on your branch.
-- Pushing the changes from a local branch to a remote branch by using `git push <remote_name>("origin" which is usually the URL of the github repository) <branch_name>(my remote branch)` will create a branch on GitHub with the same name as the local branch you're on, if one doesn't already exist.
+- Pushing the changes from a local branch to a remote branch by using `git push <remote_name>("origin", which is usually the URL of the github repository) <branch_name>(my new branch)` will create a branch on GitHub with the same name as the local branch you're on, if one doesn't already exist.
 - When you want to add the changes from your remote branch to the remote main version of the project, open a pull request. We'll look at this in more detail below. When you're working with others, a pull request lets your peers look at the changes and make suggestions before merging them into `main`.
 
 
