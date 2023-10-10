@@ -161,6 +161,7 @@ You'll be redirected. Follow the commands under the heading "…or create a new 
 ```
 git config --global credential.helper store
 ```
+> GitHub will automatically create a corresponding remote branch when push a local one. You only need to use `u` the first time you push.
 ### Step 4: Make and Commit Changes in the Files
 
 - Put whatever you want in the files that were created in the previous step, and save the changes.
@@ -202,7 +203,7 @@ touch trees.py
 
 We won't install any requirements here, but let's activate a venv anyway, to get into the habit:
 ```bash
-python3.7 -m venv venv
+python3.10 -m venv venv
 source venv/bin/activate
 ```
 
